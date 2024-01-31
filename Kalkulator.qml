@@ -7,27 +7,6 @@ Rectangle {
     height: 500
     color: "#a6a6a6"
 
-    Text {
-        id: text1
-        property color property: "#ffffff"
-        x: 0
-        y: 0
-        width: 330
-        height: 96
-        text: qsTr("0")
-        font.pixelSize: 80
-        horizontalAlignment: Text.AlignRight
-        verticalAlignment: Text.AlignVCenter
-        font.bold: false
-        rightPadding: 10
-        bottomPadding: 0
-        leftPadding: 0
-        topPadding: 5
-        property string property1: "This is a string"
-        property real property0: 0
-        font.family: "Motley Forces"
-    }
-
     Grid {
         id: grid
         anchors.fill: parent
@@ -161,9 +140,20 @@ Rectangle {
         id: myButton19
         name:"="
         fSize: 25
-
         x: 170
         y: 420
         width: 150
     }
+
+    MyText {
+        id: myText
+        x: 0
+        y: 0
+        width: 330
+        height: 100
+        rightPadding: 10
+        name: "0"
+        size:75
+    }
+
 }
