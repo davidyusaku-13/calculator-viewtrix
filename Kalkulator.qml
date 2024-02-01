@@ -2,158 +2,128 @@ import QtQuick 6.5
 import QtQuick.Controls 6.5
 
 Rectangle {
-    id: rectangle
+    id: root
+
+    property list<Dictionary> model:[
+        Dictionary{
+            name:"C"
+            buttonType: typeFunction
+        },
+        Dictionary{
+            name:"CE"
+            buttonType: typeFunction
+        },
+        Dictionary{
+            name:"DEL"
+            buttonType: typeFunction
+        },
+        Dictionary{
+            name:"÷"
+            buttonType: typeOperator
+        },
+        Dictionary{
+            name:"7"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"8"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"9"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"×"
+            buttonType: typeOperator
+        },
+        Dictionary{
+            name:"4"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"5"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"6"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"-"
+            buttonType: typeOperator
+        },
+        Dictionary{
+            name:"1"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"2"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"3"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"+"
+            buttonType: typeOperator
+        },
+        Dictionary{
+            name:"0"
+            buttonType: typeNumber
+        },
+        Dictionary{
+            name:"."
+            buttonType: typeNumber
+        }
+    ]
+
     width: 330
     height: 500
     color: "#a6a6a6"
 
-    Grid {
-        id: grid
-        anchors.fill: parent
-        anchors.leftMargin: 10
-        anchors.rightMargin: 10
-        anchors.topMargin: 100
-        anchors.bottomMargin: 10
-        spacing: 10
-        rows: 5
-        columns: 4
-
-        MyButton {
-            id: myButton
-            name:"C"
-            fSize: 15
-        }
-
-        MyButton {
-            id: myButton1
-            name:"CE"
-        }
-
-        MyButton {
-            id: myButton2
-            name:"DEL"
-        }
-
-        MyButton {
-            id: myButton3
-            name:"÷"
-            fSize:25
-        }
-
-        MyButton {
-            id: myButton4
-            name:"7"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton5
-            name:"8"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton6
-            name:"9"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton7
-            name:"×"
-            fSize: 30
-        }
-
-        MyButton {
-            id: myButton8
-            name:"4"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton9
-            name:"5"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton10
-            name:"6"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton11
-            name:"-"
-            fSize:25
-        }
-
-        MyButton {
-            id: myButton12
-            name:"1"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton13
-            name:"2"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton14
-            name:"3"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton15
-            name:"+"
-            fSize:25
-        }
-
-        MyButton {
-            id: myButton16
-            name:"0"
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-
-        MyButton {
-            id: myButton17
-            name:"."
-            color:"#ffffff"
-            hoveredColor: "#d6d6d6"
-        }
-    }
-
-    MyButton {
-        id: myButton19
-        name:"="
-        fSize: 25
-        x: 170
-        y: 420
-        width: 150
-    }
-
-    MyText {
+    MyText{
         id: myText
         x: 0
         y: 0
         width: 330
         height: 100
         rightPadding: 10
+
         name: "0"
-        size:75
+        size: 70
+    }
+
+    Grid {
+        id: grid
+        x: 10
+        y: 100
+        width: 310
+        height: 390
+        spacing: 10
+        rows: 5
+        columns: 4
+
+        Repeater{
+            model: root.model
+            MyButton{
+                required property var model
+                name: model.name
+                buttonType: model.buttonType
+            }
+        }
+    }
+
+    MyButton {
+        id: myButton
+        x: 170
+        y: 420
+        width: 150
+
+        name: "="
+        fSize: 25
+        buttonType: 1
     }
 
 }
