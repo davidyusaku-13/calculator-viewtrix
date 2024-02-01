@@ -5,9 +5,9 @@ Button {
     id: root
 
     property int buttonType
-    property string color: buttonType==0 ? "#ffffff" : "#ffd7cd"
-    property string hoveredColor: buttonType==0 ? "#d6d6d6" : "#ecbbaf"
-    property int fSize: buttonType==1 ? 25 : 15
+    property string color: buttonType == 0 ? "#ffffff" : "#ffd7cd"
+    property string hoveredColor: buttonType == 0 ? "#d6d6d6" : "#ecbbaf"
+    property int fSize: buttonType == 1 ? 25 : 15
     property alias name: root.text
 
     width: 70
