@@ -163,7 +163,7 @@ Rectangle {
         y: 118
         width: 330
         height: 382
-        visible: false
+        visible: true
         color: "#d6d6d6"
 
         Button {
@@ -183,6 +183,41 @@ Rectangle {
                     width: parent.width - 15
                     height: parent.height - 15
                     source: "trash icon.png"
+                }
+            }
+        }
+
+        ListView {
+            id: historyList
+            x: 8
+            y: 8
+            width: 314
+            height: 330
+            model: ListModel {
+                ListElement {
+                    name: "a+b-c=d"
+                }
+
+                ListElement {
+                    name: "a+b-c=d"
+                }
+
+                ListElement {
+                    name: "a+b-c=d"
+                }
+
+                ListElement {
+                    name: "a+b-c=d"
+                }
+            }
+            delegate: Item {
+                x: 5
+                width: 80
+                height: 40
+
+                Text {
+                    text: name
+                    anchors.verticalCenter: parent.verticalCenter
                 }
             }
         }
