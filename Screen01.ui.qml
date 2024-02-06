@@ -6,7 +6,7 @@ Rectangle {
     width: 330
     height: 500
 
-    Kalkulator {
+    Calculator {
         anchors.fill: parent
     }
 }
