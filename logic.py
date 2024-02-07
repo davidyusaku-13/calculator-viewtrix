@@ -1,6 +1,11 @@
 from PySide6.QtCore import Slot, QObject
+from PySide6.QtQml import QmlElement
+
+QML_IMPORT_NAME = "CalculatorLogic"
+QML_IMPORT_MAJOR_VERSION = 1
 
 
+@QmlElement
 class CalculatorLogic(QObject):
     def __init__(self):
         super().__init__()
@@ -10,13 +15,13 @@ class CalculatorLogic(QObject):
         result = float(nums[0])
         if len(ops) > 0:
             for i in range(1, len(nums)):
-                if ops[i - 1] == "add":
+                if ops[i - 1] == "+":
                     result += float(nums[i])
-                elif ops[i - 1] == "minus":
+                elif ops[i - 1] == "-":
                     result -= float(nums[i])
-                elif ops[i - 1] == "multiply":
+                elif ops[i - 1] == "×":
                     result *= float(nums[i])
-                elif ops[i - 1] == "divide":
+                elif ops[i - 1] == "÷":
                     if float(nums[i]) != 0:
                         result /= float(nums[i])
                     else:
