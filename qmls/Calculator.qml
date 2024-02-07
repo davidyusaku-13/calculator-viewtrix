@@ -14,11 +14,7 @@ Rectangle {
     property bool rectState: false
 
     required property CalculatorManager manager
-
     
-
-    
-
     Button {
         id: history
         x: 10
